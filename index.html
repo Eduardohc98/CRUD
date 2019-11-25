@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="app" class="containerPadre">
+        <h1 class="titulo">TAREAS</h1>
+        <div class="containerTareas1">
+        <input type="text" placeholder="Escribe alguna tarea" id="dato" class="dt"> <button @click="addItem">Agregar Tarea</button></div>
+        <h1>LISTA</h1>
+        <div v-for="(tarea,i) in tareas" class="containerTareas2">
+            <p class="Tarea" v-show="editar == false">{{tarea.dato}}</p> <button @click="deleteItem(i)" class="tachoBasura"></button> <button class="btnEditar" @click="editItem"></button>
+            <input type="text" v-model="tarea.dato" v-show="editar == true" @keyup.enter="doneEdit" class="input">
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
